@@ -37,6 +37,7 @@ contract Blocktrain {
     function withdrawal() public payable {
         // address.transfer(amount to transfer)
         payable(msg.sender).transfer(LaxmiChitFund[msg.sender].balance);
+        LaxmiChitFund[msg.sender].balance = 0; // clear the balance
         // payable(msg.sender)
         emit withdrawalDone(
             msg.sender,
